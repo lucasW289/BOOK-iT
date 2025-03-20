@@ -14,7 +14,11 @@ const Detail = () => {
   });
 
   if (!hotel) {
-    return <></>;
+    return (
+      <>
+        <div>${hotelId}</div>
+      </>
+    );
   }
 
   return (
@@ -28,21 +32,21 @@ const Detail = () => {
         <h1 className="text-3xl font-bold">{hotel.name}</h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {hotel.imageUrls.map((image) => (
           <div className="h-[300px]">
             <img
               src={image}
               alt={hotel.name}
-              className="rounded-md w-full h-full object-cover object-center"
+              className="object-cover object-center w-full h-full rounded-md"
             />
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
+      <div className="grid grid-cols-1 gap-2 lg:grid-cols-4">
         {hotel.facilities.map((facility) => (
-          <div className="border border-slate-300 rounded-sm p-3">
+          <div className="p-3 border rounded-sm border-slate-300">
             {facility}
           </div>
         ))}
