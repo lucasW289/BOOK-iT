@@ -16,7 +16,7 @@ const Detail = () => {
   if (!hotel) {
     return (
       <>
-        <div>${hotelId}</div>
+        <div>I am here</div>
       </>
     );
   }

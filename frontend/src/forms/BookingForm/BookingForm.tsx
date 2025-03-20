@@ -151,17 +151,3 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
 };
 
 export default BookingForm;
-function bookRoom(arg0: {
-  paymentIntentId: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  adultCount: number;
-  childCount: number;
-  checkIn: string;
-  checkOut: string;
-  hotelId: string;
-  totalCost: number;
-}) {
-  throw new Error("Function not implemented.");
-}
