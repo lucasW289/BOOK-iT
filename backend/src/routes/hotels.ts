@@ -67,17 +67,23 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.get(
   "/:hotelId",
-  [param("id").notEmpty().withMessage("Hotel ID is required")],
-  async (req: Request, res: Response) => {
+  [param("hotelId").notEmpty().withMessage("Hotel ID is required")],
+  async (req: Request, res: Response): Promise<void> => {
+    // Explicit return type of `Promise<void>`
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.status(400).json({ errors: errors.array() });
+      return;
     }
 
-    const id = req.params.id.toString();
+    const hotelId = req.params.hotelId.toString();
 
     try {
-      const hotel = await Hotel.findById(id);
+      const hotel = await Hotel.findById(hotelId);
+      if (!hotel) {
+        res.status(404).json({ message: "Hotel not found" });
+        return;
+      }
       res.json(hotel);
     } catch (error) {
       console.log(error);

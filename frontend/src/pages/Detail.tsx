@@ -8,8 +8,8 @@ const Detail = () => {
   const { hotelId } = useParams();
 
   const { data: hotel } = useQuery({
-    queryKey: ["fetchMyHotelById", hotelId], // queryKey should be an array
-    queryFn: () => apiClient.fetchMyHotelById(hotelId || ""),
+    queryKey: ["fetchHotelById", hotelId], // queryKey should be an array
+    queryFn: () => apiClient.fetchHotelById(hotelId || ""),
     enabled: !!hotelId, // Ensures query runs only when hotelId is available
   });
 
