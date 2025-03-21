@@ -29,7 +29,13 @@ const EditHotel = () => {
   };
 
   return (
-    <ManageHotelForm hotel={hotel} onSave={handleSave} isPending={isPending} />
+    <div className="px-4 space-y-6 sm:px-6 lg:px-8">
+      <ManageHotelForm
+        hotel={hotel}
+        onSave={handleSave}
+        isPending={isPending}
+      />
+    </div>
   );
 };
 

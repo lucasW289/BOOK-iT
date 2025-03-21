@@ -10,10 +10,10 @@ const FacilitiesSection = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-3">Facilities</h2>
-      <div className="grid grid-cols-5 gap-3">
+      <h2 className="mb-3 text-2xl font-bold">Facilities</h2>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {hotelFacilities.map((facility) => (
-          <label className="text-sm flex gap-1 text-gray-700">
+          <label key={facility} className="flex gap-1 text-sm text-gray-700">
             <input
               type="checkbox"
               value={facility}
@@ -32,7 +32,7 @@ const FacilitiesSection = () => {
         ))}
       </div>
       {errors.facilities && (
-        <span className="text-red-500 text-sm font-bold">
+        <span className="text-sm font-bold text-red-500">
           {errors.facilities.message}
         </span>
       )}

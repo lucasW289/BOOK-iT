@@ -9,12 +9,12 @@ const GuestsSection = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-3">Guests</h2>
-      <div className="grid grid-cols-2 p-6 gap-5 bg-gray-300">
-        <label className="text-gray-700 text-sm font-semibold">
+      <h2 className="mb-3 text-2xl font-bold">Guests</h2>
+      <div className="grid grid-cols-1 gap-5 p-6 bg-gray-300 sm:grid-cols-2">
+        <label className="text-sm font-semibold text-gray-700">
           Adults
           <input
-            className="border rounded w-full py-2 px-3 font-normal"
+            className="w-full px-3 py-2 font-normal border rounded"
             type="number"
             min={1}
             {...register("adultCount", {
@@ -22,15 +22,15 @@ const GuestsSection = () => {
             })}
           />
           {errors.adultCount?.message && (
-            <span className="text-red-500 text-sm fold-bold">
+            <span className="text-sm font-bold text-red-500">
               {errors.adultCount?.message}
             </span>
           )}
         </label>
-        <label className="text-gray-700 text-sm font-semibold">
+        <label className="text-sm font-semibold text-gray-700">
           Children
           <input
-            className="border rounded w-full py-2 px-3 font-normal"
+            className="w-full px-3 py-2 font-normal border rounded"
             type="number"
             min={0}
             {...register("childCount", {
@@ -38,7 +38,7 @@ const GuestsSection = () => {
             })}
           />
           {errors.childCount?.message && (
-            <span className="text-red-500 text-sm fold-bold">
+            <span className="text-sm font-bold text-red-500">
               {errors.childCount?.message}
             </span>
           )}

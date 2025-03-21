@@ -32,7 +32,8 @@ const Detail = () => {
         <h1 className="text-3xl font-bold">{hotel.name}</h1>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+      {/* Images section with responsiveness */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {hotel.imageUrls.map((image) => (
           <div className="h-[300px]">
             <img
@@ -44,7 +45,8 @@ const Detail = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-2 lg:grid-cols-4">
+      {/* Facilities section with responsiveness */}
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
         {hotel.facilities.map((facility) => (
           <div className="p-3 border rounded-sm border-slate-300">
             {facility}
@@ -52,7 +54,8 @@ const Detail = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
+      {/* Description and Guest Info Form with responsiveness */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-[2fr_1fr]">
         <div className="whitespace-pre-line">{hotel.description}</div>
         <div className="h-fit">
           <GuestInfoForm

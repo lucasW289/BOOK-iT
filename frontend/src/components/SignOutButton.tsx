@@ -7,9 +7,9 @@ const SignOutButton = () => {
   const { showToast } = useAppContext();
 
   const mutation = useMutation({
-    mutationFn: apiClient.signOut, // ✅ Corrected to use an object
+    mutationFn: apiClient.signOut,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ["validateToken"] }); // ✅ Fixed invalidateQueries syntax
+      await queryClient.invalidateQueries({ queryKey: ["validateToken"] });
       showToast({ message: "Signed Out!", type: "SUCCESS" });
     },
     onError: (error: Error) => {
@@ -24,7 +24,7 @@ const SignOutButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="text-blue-600 px-3 font-bold bg-white hover:bg-gray-100 "
+      className="px-6 py-3 font-semibold text-white transition-all bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
     >
       Sign Out
     </button>

@@ -72,7 +72,8 @@ const Search = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
-      <div className="sticky p-5 border rounded-lg border-slate-300 h-fit top-10">
+      {/* Filter Section */}
+      <div className="p-5 border rounded-lg border-slate-300 h-fit lg:sticky lg:top-10 lg:h-[calc(100vh-40px)] lg:overflow-auto">
         <div className="space-y-5">
           <h3 className="pb-5 text-lg font-semibold border-b border-slate-300">
             Filter by:
@@ -95,6 +96,8 @@ const Search = () => {
           />
         </div>
       </div>
+
+      {/* Search Results Section */}
       <div className="flex flex-col gap-5">
         <div className="flex items-center justify-between">
           <span className="text-xl font-bold">
@@ -116,9 +119,11 @@ const Search = () => {
             </option>
           </select>
         </div>
+
         {hotelData?.data.map((hotel) => (
-          <SearchResultsCard hotel={hotel} />
+          <SearchResultsCard hotel={hotel} key={hotel._id} />
         ))}
+
         <div>
           <Pagination
             page={hotelData?.pagination.page || 1}

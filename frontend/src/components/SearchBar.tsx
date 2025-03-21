@@ -34,72 +34,107 @@ const SearchBar = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="grid items-center grid-cols-2 gap-4 p-3 -mt-8 bg-orange-400 rounded shadow-md lg:grid-cols-3 2xl:grid-cols-5"
+      className="grid max-w-4xl grid-cols-2 gap-3 p-4 mx-auto bg-white rounded-md shadow-md"
     >
-      <div className="flex flex-row items-center flex-1 p-2 bg-white">
-        <MdTravelExplore size={25} className="mr-2" />
+      <div className="flex items-center p-2 space-x-2 bg-gray-100 rounded-md">
+        <MdTravelExplore size={24} className="text-blue-600" />
         <input
           placeholder="Where are you going?"
-          className="w-full text-md focus:outline-none"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
           value={destination}
           onChange={(event) => setDestination(event.target.value)}
+          aria-label="Destination"
         />
       </div>
 
-      <div className="flex gap-2 px-2 py-1 bg-white">
-        <label className="flex items-center">
-          Adults:
+      <div className="flex gap-2">
+        <div className="w-1/2">
+          <label className="text-sm font-medium text-gray-700" htmlFor="adults">
+            Adults
+          </label>
           <input
-            className="w-full p-1 font-bold focus:outline-none"
+            id="adults"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             type="number"
             min={1}
             max={20}
             value={adultCount}
             onChange={(event) => setAdultCount(parseInt(event.target.value))}
+            aria-label="Adult count"
           />
-        </label>
-        <label className="flex items-center">
-          Children:
+        </div>
+
+        <div className="w-1/2">
+          <label
+            className="text-sm font-medium text-gray-700"
+            htmlFor="children"
+          >
+            Children
+          </label>
           <input
-            className="w-full p-1 font-bold focus:outline-none"
+            id="children"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             type="number"
             min={0}
             max={20}
             value={childCount}
             onChange={(event) => setChildCount(parseInt(event.target.value))}
+            aria-label="Children count"
           />
-        </label>
+        </div>
       </div>
-      <div>
-        <DatePicker
-          selected={checkIn}
-          onChange={(date) => setCheckIn(date as Date)}
-          selectsStart
-          startDate={checkIn}
-          endDate={checkOut}
-          minDate={minDate}
-          maxDate={maxDate}
-          placeholderText="Check-in Date"
-          className="min-w-full p-2 bg-white focus:outline-none"
-          wrapperClassName="min-w-full"
-        />
+
+      <div className="flex gap-2">
+        <div className="w-1/2">
+          <label
+            className="text-sm font-medium text-gray-700"
+            htmlFor="check-in"
+          >
+            Check-in
+          </label>
+          <DatePicker
+            selected={checkIn}
+            onChange={(date) => setCheckIn(date as Date)}
+            selectsStart
+            startDate={checkIn}
+            endDate={checkOut}
+            minDate={minDate}
+            maxDate={maxDate}
+            placeholderText="Check-in Date"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            id="check-in"
+            aria-label="Check-in date"
+          />
+        </div>
+
+        <div className="w-1/2">
+          <label
+            className="text-sm font-medium text-gray-700"
+            htmlFor="check-out"
+          >
+            Check-out
+          </label>
+          <DatePicker
+            selected={checkOut}
+            onChange={(date) => setCheckOut(date as Date)}
+            selectsEnd
+            startDate={checkIn}
+            endDate={checkOut}
+            minDate={minDate}
+            maxDate={maxDate}
+            placeholderText="Check-out Date"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            id="check-out"
+            aria-label="Check-out date"
+          />
+        </div>
       </div>
-      <div>
-        <DatePicker
-          selected={checkOut}
-          onChange={(date) => setCheckOut(date as Date)}
-          selectsStart
-          startDate={checkIn}
-          endDate={checkOut}
-          minDate={minDate}
-          maxDate={maxDate}
-          placeholderText="Check-out Date"
-          className="min-w-full p-2 bg-white focus:outline-none"
-          wrapperClassName="min-w-full"
-        />
-      </div>
-      <div className="flex gap-1">
-        <button className="w-2/3 h-full p-2 text-xl font-bold text-white bg-blue-600 hover:bg-blue-500">
+
+      <div className="flex justify-center mt-3">
+        <button
+          type="submit"
+          className="w-full py-3 text-lg font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        >
           Search
         </button>
       </div>

@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile-first container */
+.container {
+    @apply w-full max-w-6xl px-4 py-6 mx-auto; /* Tailwind utilities for container */
+}
+
+/* Hero section (example) */
+.hero-section {
+    @apply py-4 text-center; /* Tailwind utilities for padding and text alignment */
+}
+
+/* Hero title */
+.hero-title {
+    @apply text-2xl font-bold; /* Tailwind utilities for font size and weight */
+}
+
+/* Button styling */
+.button {
+    @apply px-8 py-4 text-base text-white transition duration-300 ease-in-out bg-blue-600 rounded-md cursor-pointer;
+}
+
+.button:hover {
+    @apply bg-blue-700; /* Tailwind hover state */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 640px) {
+    .hero-title {
+        @apply text-xl; /* Tailwind utility for font size */
+    }
+
+    .button {
+        @apply w-full py-3; /* Tailwind utility for full-width button */
+    }
+}
+
+/* Responsive adjustments for larger mobile/tablet screens */
+@media (max-width: 768px) {
+    .container {
+        @apply px-4 py-6; /* Tailwind utilities for padding */
+    }
+
+    .button {
+        @apply w-auto px-6 py-3; /* Tailwind utilities for padding */
+    }
+}

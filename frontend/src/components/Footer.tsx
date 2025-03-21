@@ -1,13 +1,13 @@
 const Footer = () => {
   return (
-    <div className="bg-blue-800 py-10">
-      <div className="container mx-auto flex justify-between items-center">
-        <span className="text-3xl text-white front-bold tracking-tight">
+    <div className="py-10 bg-blue-800">
+      <div className="container flex flex-col items-center justify-between mx-auto md:flex-row">
+        <span className="mb-4 text-3xl font-bold tracking-tight text-white md:mb-0">
           MernHolidays.com
         </span>
-        <span className="text-white front-bold tracking-tight flex gap-4">
+        <span className="flex gap-4 font-bold tracking-tight text-white">
           <p className="cursor-pointer">Privacy Policy</p>
-          <p className="cursor-pointer">Term of Service</p>
+          <p className="cursor-pointer">Terms of Service</p>
         </span>
       </div>
     </div>

@@ -17,15 +17,15 @@ const Toast = ({ message, type, onClose }: ToastProps) => {
 
   const style =
     type === "SUCCESS"
-      ? "fixed top-4 right-4 z-50 p-4 rounded-md bg-green-600 text-white max-w-md"
-      : "fixed top-4 right-4 z-50 p-4 rounded-md bg-red-600 text-white max-w-md";
+      ? "fixed top-4 right-4 z-50 p-3 rounded-md bg-green-600 text-white max-w-xs w-full sm:max-w-sm sm:p-4 sm:text-lg"
+      : "fixed top-4 right-4 z-50 p-3 rounded-md bg-red-600 text-white max-w-xs w-full sm:max-w-sm sm:p-4 sm:text-lg";
 
   return (
     <div className={style}>
-      <div className="flex justify-center items-center">
-        <span className="text-lg font-semibold">{message}</span>
+      <div className="flex items-center justify-between">
+        <span className="text-sm font-semibold sm:text-base">{message}</span>
         <button
-          className="ml-4 text-white font-bold"
+          className="ml-4 font-bold text-white"
           onClick={onClose} // Allow manual closing
         >
           ✖

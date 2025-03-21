@@ -13,10 +13,11 @@ const TypeSection = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-3">Type</h2>
-      <div className="grid grid-cols-5 gap-2">
+      <h2 className="mb-3 text-2xl font-bold">Type</h2>
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
         {hotelTypes.map((type) => (
           <label
+            key={type}
             className={
               typeWatch === type
                 ? "cursor-pointer bg-blue-300 text-sm rounded-full px-4 py-2 font-semibold"
@@ -36,7 +37,7 @@ const TypeSection = () => {
         ))}
       </div>
       {errors.type && (
-        <span className="text-red-500 text-sm font-bold">
+        <span className="text-sm font-bold text-red-500">
           {errors.type.message}
         </span>
       )}

@@ -19,15 +19,14 @@ const MyHotels = () => {
     );
   }
 
-  if (!hotelData || !Array.isArray(hotelData) || hotelData.length === 0) {
+  if (!hotelData || hotelData.length === 0) {
     return (
       <div>
-        <span className="flex justify-between">
-          <h1 className="text-3xl font-bold">No Hotels Added yet</h1>
-
+        <span className="flex items-center justify-between mb-4">
+          <h1 className="text-2xl font-semibold">No Hotels Added Yet</h1>
           <Link
             to="/add-hotel"
-            className="flex p-2 text-xl font-bold text-white bg-blue-600 hover:bg-blue-500"
+            className="px-5 py-2 text-lg font-medium text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-500"
           >
             Add Hotel
           </Link>
@@ -37,54 +36,59 @@ const MyHotels = () => {
   }
 
   return (
-    <div className="space-y-5">
-      <span className="flex justify-between">
-        <h1 className="text-3xl font-bold">My Hotels</h1>
+    <div className="space-y-4">
+      <span className="flex items-center justify-between mb-4">
+        <h1 className="text-2xl font-semibold">My Hotels</h1>
         <Link
           to="/add-hotel"
-          className="flex p-2 text-xl font-bold text-white bg-blue-600 hover:bg-blue-500"
+          className="px-5 py-2 text-lg font-medium text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-500"
         >
           Add Hotel
         </Link>
       </span>
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {hotelData.map((hotel) => (
           <div
             key={hotel._id}
             data-testid="hotel-card"
-            className="flex flex-col justify-between gap-5 p-8 border rounded-lg border-slate-300"
+            className="flex flex-col justify-between gap-4 p-5 transition-shadow border rounded-md shadow-sm border-slate-300 hover:shadow-md"
           >
-            <h2 className="text-2xl font-bold">{hotel.name}</h2>
-            <div className="whitespace-pre-line">{hotel.description}</div>
-            <div className="grid grid-cols-5 gap-2">
-              <div className="flex items-center p-3 border rounded-sm border-slate-300">
-                <BsMap className="mr-1" />
+            <h2 className="text-xl font-semibold text-gray-800">
+              {hotel.name}
+            </h2>
+            <div className="text-sm text-gray-600 whitespace-pre-line">
+              {hotel.description}
+            </div>
+            <div className="grid grid-cols-1 gap-3 mt-3 sm:grid-cols-2">
+              <div className="flex items-center p-2 text-sm border rounded-sm border-slate-300">
+                <BsMap className="mr-2 text-lg text-gray-500" />
                 {hotel.city}, {hotel.country}
               </div>
-              <div className="flex items-center p-3 border rounded-sm border-slate-300">
-                <BsBuilding className="mr-1" />
+              <div className="flex items-center p-2 text-sm border rounded-sm border-slate-300">
+                <BsBuilding className="mr-2 text-lg text-gray-500" />
                 {hotel.type}
               </div>
-              <div className="flex items-center p-3 border rounded-sm border-slate-300">
-                <BiMoney className="mr-1" />£{hotel.pricePerNight} per night
+              <div className="flex items-center p-2 text-sm border rounded-sm border-slate-300">
+                <BiMoney className="mr-2 text-lg text-gray-500" />£
+                {hotel.pricePerNight} per night
               </div>
-              <div className="flex items-center p-3 border rounded-sm border-slate-300">
-                <BiHotel className="mr-1" />
+              <div className="flex items-center p-2 text-sm border rounded-sm border-slate-300">
+                <BiHotel className="mr-2 text-lg text-gray-500" />
                 {hotel.adultCount} adults, {hotel.childCount} children
               </div>
-              <div className="flex items-center p-3 border rounded-sm border-slate-300">
-                <BiStar className="mr-1" />
+              <div className="flex items-center p-2 text-sm border rounded-sm border-slate-300">
+                <BiStar className="mr-2 text-lg text-gray-500" />
                 {hotel.starRating} Star Rating
               </div>
             </div>
-            <span className="flex justify-end">
+            <div className="flex justify-end mt-3">
               <Link
                 to={`/edit-hotel/${hotel._id}`}
-                className="flex p-2 text-xl font-bold text-white bg-blue-600 hover:bg-blue-500"
+                className="px-5 py-2 text-lg font-medium text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-500"
               >
                 View Details
               </Link>
-            </span>
+            </div>
           </div>
         ))}
       </div>
