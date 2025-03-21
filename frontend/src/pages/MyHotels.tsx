@@ -20,7 +20,20 @@ const MyHotels = () => {
   }
 
   if (!hotelData || !Array.isArray(hotelData) || hotelData.length === 0) {
-    return <span>No Hotels found</span>;
+    return (
+      <div>
+        <span className="flex justify-between">
+          <h1 className="text-3xl font-bold">No Hotels Added yet</h1>
+
+          <Link
+            to="/add-hotel"
+            className="flex p-2 text-xl font-bold text-white bg-blue-600 hover:bg-blue-500"
+          >
+            Add Hotel
+          </Link>
+        </span>
+      </div>
+    );
   }
 
   return (
@@ -29,7 +42,7 @@ const MyHotels = () => {
         <h1 className="text-3xl font-bold">My Hotels</h1>
         <Link
           to="/add-hotel"
-          className="flex bg-blue-600 text-white text-xl font-bold p-2 hover:bg-blue-500"
+          className="flex p-2 text-xl font-bold text-white bg-blue-600 hover:bg-blue-500"
         >
           Add Hotel
         </Link>
@@ -39,27 +52,27 @@ const MyHotels = () => {
           <div
             key={hotel._id}
             data-testid="hotel-card"
-            className="flex flex-col justify-between border border-slate-300 rounded-lg p-8 gap-5"
+            className="flex flex-col justify-between gap-5 p-8 border rounded-lg border-slate-300"
           >
             <h2 className="text-2xl font-bold">{hotel.name}</h2>
             <div className="whitespace-pre-line">{hotel.description}</div>
             <div className="grid grid-cols-5 gap-2">
-              <div className="border border-slate-300 rounded-sm p-3 flex items-center">
+              <div className="flex items-center p-3 border rounded-sm border-slate-300">
                 <BsMap className="mr-1" />
                 {hotel.city}, {hotel.country}
               </div>
-              <div className="border border-slate-300 rounded-sm p-3 flex items-center">
+              <div className="flex items-center p-3 border rounded-sm border-slate-300">
                 <BsBuilding className="mr-1" />
                 {hotel.type}
               </div>
-              <div className="border border-slate-300 rounded-sm p-3 flex items-center">
+              <div className="flex items-center p-3 border rounded-sm border-slate-300">
                 <BiMoney className="mr-1" />£{hotel.pricePerNight} per night
               </div>
-              <div className="border border-slate-300 rounded-sm p-3 flex items-center">
+              <div className="flex items-center p-3 border rounded-sm border-slate-300">
                 <BiHotel className="mr-1" />
                 {hotel.adultCount} adults, {hotel.childCount} children
               </div>
-              <div className="border border-slate-300 rounded-sm p-3 flex items-center">
+              <div className="flex items-center p-3 border rounded-sm border-slate-300">
                 <BiStar className="mr-1" />
                 {hotel.starRating} Star Rating
               </div>
@@ -67,7 +80,7 @@ const MyHotels = () => {
             <span className="flex justify-end">
               <Link
                 to={`/edit-hotel/${hotel._id}`}
-                className="flex bg-blue-600 text-white text-xl font-bold p-2 hover:bg-blue-500"
+                className="flex p-2 text-xl font-bold text-white bg-blue-600 hover:bg-blue-500"
               >
                 View Details
               </Link>
