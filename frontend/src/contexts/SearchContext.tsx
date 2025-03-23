@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 type SearchContext = {
   destination: string;
@@ -32,10 +32,13 @@ export const SearchContextProvider = ({
     () =>
       new Date(sessionStorage.getItem("checkIn") || new Date().toISOString())
   );
-  const [checkOut, setCheckOut] = useState<Date>(
-    () =>
-      new Date(sessionStorage.getItem("checkOut") || new Date().toISOString())
-  );
+  const [checkOut, setCheckOut] = useState<Date>(() => {
+    const checkInDate = new Date(
+      sessionStorage.getItem("checkIn") || new Date().toISOString()
+    );
+    checkInDate.setDate(checkInDate.getDate() + 1); // Simply adding 1 day
+    return checkInDate;
+  });
   const [adultCount, setAdultCount] = useState<number>(() =>
     parseInt(sessionStorage.getItem("adultCount") || "1")
   );
@@ -43,8 +46,16 @@ export const SearchContextProvider = ({
     parseInt(sessionStorage.getItem("childCount") || "1")
   );
   const [hotelId, setHotelId] = useState<string>(
-    () => sessionStorage.getItem("hotelID") || ""
+    () => sessionStorage.getItem("hotelId") || ""
   );
+
+  useEffect(() => {
+    if (checkIn) {
+      const updatedCheckOut = new Date(checkIn);
+      updatedCheckOut.setDate(checkIn.getDate() + 1); // Set checkOut to be one day later than checkIn
+      setCheckOut(updatedCheckOut);
+    }
+  }, [checkIn]); // Runs when checkIn changes
 
   const saveSearchValues = (
     destination: string,
