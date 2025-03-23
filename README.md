@@ -1,4 +1,4 @@
-# B O O K - i T
+# H 0 T 3 L - i T
 
 **B O O K - i T** is a hotel booking platform built using the MERN (MongoDB, Express, React, Node.js) stack. The application allows users to search for hotels, view details, and make bookings. Payments are securely processed through **Stripe**, and images are stored in the cloud using **Cloudinary**.
 
