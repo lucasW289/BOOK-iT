@@ -26,7 +26,7 @@ const MyHotels = () => {
           <h1 className="text-2xl font-semibold">No Hotels Added Yet</h1>
           <Link
             to="/add-hotel"
-            className="px-5 py-2 text-lg font-medium text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-500"
+            className="px-5 py-2 text-lg font-medium text-white transition-colors bg-teal-600 rounded-md hover:bg-teal-500"
           >
             Add Hotel
           </Link>
@@ -41,7 +41,7 @@ const MyHotels = () => {
         <h1 className="text-2xl font-semibold">My Hotels</h1>
         <Link
           to="/add-hotel"
-          className="px-5 py-2 text-lg font-medium text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-500"
+          className="px-5 py-2 text-lg font-medium text-white transition-colors bg-teal-600 rounded-md hover:bg-teal-500"
         >
           Add Hotel
         </Link>
@@ -84,7 +84,7 @@ const MyHotels = () => {
             <div className="flex justify-end mt-3">
               <Link
                 to={`/edit-hotel/${hotel._id}`}
-                className="px-5 py-2 text-lg font-medium text-white transition-colors bg-blue-600 rounded-md hover:bg-blue-500"
+                className="px-5 py-2 text-lg font-medium text-white transition-colors bg-teal-600 rounded-md hover:bg-teal-500"
               >
                 View Details
               </Link>

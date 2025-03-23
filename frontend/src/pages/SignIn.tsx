@@ -42,7 +42,7 @@ const SignIn = () => {
       className="flex flex-col max-w-md gap-6 p-6 mx-auto bg-white rounded-lg shadow-lg"
       onSubmit={onSubmit}
     >
-      <h2 className="mb-4 text-4xl font-bold text-center text-blue-800">
+      <h2 className="mb-4 text-4xl font-bold text-center text-teal-800">
         Sign In
       </h2>
 
@@ -50,7 +50,7 @@ const SignIn = () => {
         Email
         <input
           type="email"
-          className="w-full p-3 mt-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 mt-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500"
           {...register("email", { required: "This field is required" })}
         />
         {errors.email && (
@@ -64,7 +64,7 @@ const SignIn = () => {
         Password
         <input
           type="password"
-          className="w-full p-3 mt-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 mt-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500"
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -83,14 +83,14 @@ const SignIn = () => {
       <div className="flex items-center justify-between mt-4">
         <span className="text-sm text-gray-500">
           Not Registered?{" "}
-          <Link className="text-blue-600 underline" to="/register">
+          <Link className="text-teal-600 underline" to="/register">
             Create an account
           </Link>
         </span>
 
         <button
           type="submit"
-          className="px-6 py-3 font-semibold text-white transition-all bg-blue-600 rounded-lg hover:bg-blue-500"
+          className="px-6 py-3 font-semibold text-white transition-all bg-teal-600 rounded-lg hover:bg-teal-500"
         >
           Login
         </button>

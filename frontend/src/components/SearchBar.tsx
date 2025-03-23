@@ -37,10 +37,10 @@ const SearchBar = () => {
       className="grid max-w-4xl grid-cols-2 gap-3 p-4 mx-auto bg-white rounded-md shadow-md"
     >
       <div className="flex items-center p-2 space-x-2 bg-gray-100 rounded-md">
-        <MdTravelExplore size={24} className="text-blue-600" />
+        <MdTravelExplore size={24} className="text-teal-600" />
         <input
           placeholder="Where are you going?"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600"
           value={destination}
           onChange={(event) => setDestination(event.target.value)}
           aria-label="Destination"
@@ -54,7 +54,7 @@ const SearchBar = () => {
           </label>
           <input
             id="adults"
-            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600"
             type="number"
             min={1}
             max={20}
@@ -73,7 +73,7 @@ const SearchBar = () => {
           </label>
           <input
             id="children"
-            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600"
             type="number"
             min={0}
             max={20}
@@ -101,7 +101,7 @@ const SearchBar = () => {
             minDate={minDate}
             maxDate={maxDate}
             placeholderText="Check-in Date"
-            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600"
             id="check-in"
             aria-label="Check-in date"
           />
@@ -123,7 +123,7 @@ const SearchBar = () => {
             minDate={minDate}
             maxDate={maxDate}
             placeholderText="Check-out Date"
-            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full p-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600"
             id="check-out"
             aria-label="Check-out date"
           />
@@ -133,7 +133,7 @@ const SearchBar = () => {
       <div className="flex justify-center mt-3">
         <button
           type="submit"
-          className="w-full py-3 text-lg font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="w-full py-3 text-lg font-semibold text-white bg-teal-600 rounded-md hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-600"
         >
           Search
         </button>
